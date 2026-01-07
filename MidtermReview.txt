@@ -1,0 +1,22 @@
+Peer Tutoring Project
+Design Review
+Ellie, Felicity and Annie 
+January 2026
+
+Functionality: 
+We are attempting to improve the Math Peer Tutoring program at GA by making their organization of student mentors and mentees easier. More specifically, adding a way for tutors to see a list of their current students and view what classes they are taking.
+Some potential users who will benefit from this program will be any teachers organizing Math Peer Tutoring, students signing up to be tutors, and students in need of tutoring.
+The core features of this program are the Students, Tutors, and Tester classes. The inputs of this program are broken up into student tutors and students wanting tutoring. The student tutors put in their free block and the highest class + level they have taken. Students signing up for tutoring also put in their free block and their current class. The output of this program is matching students with tutors, if compatible.
+A few more features we are hoping to include are printing out a list of all the students and tutors and assigning tutors who have less students to tutor new students.
+
+Progress:
+So far, we have been able to accomplish our base code working correctly. Our next steps are to include detailed comments about our classes, variables and functions. Currently, we are working on expanding our list of tutors and students to be accurate to the real peer tutoring organization at GA. 
+
+Task Planning: 
+Our next steps for our program are to consult Mr Pham to get the list of peer tutors so we can expand on our base code and incorporate new tutors and students. We will also make a method to compare the tutors and see who tutors the most and least amount of students. Felicity will talk to Mr Pham to get the list, then Annie will add them to the Tester class creating new objects for each tutor. Ellie and Felicity will make the new function to be able to compare the tutors. 
+
+Feedback:
+How to add a file into our project 
+Length of our code: only having one ish main function besides helper methods
+
+
