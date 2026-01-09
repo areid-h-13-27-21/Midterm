@@ -1,33 +1,71 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Tester{
-  public static void main(String[] args) {
+
+
+  public static void main(String[] args) throws FileNotFoundException {
       // Create students
-      Students student1 = new Students("Ellie", "PreCalc", "Accelerated","G");
-      Students student2 = new Students("Devon", "Geometry","Honors","G");
-
-
-
-
-      // Create a tutor
-      Tutors tutor1 = new Tutors("Selina", "Calc", "Honors", "G");
-
-
-
-
-      // Add students to the tutor
-      if(isQualified(student1, tutor1)){
-          tutor1.addStudent(student1.getName());
+      Scanner scanner = new Scanner(System.in);
+      boolean cont = true;
+      ArrayList<Tutors> currentTutors = listOfTutors("/Users/areid/Desktop/CS_SEMINAR/CS_SEMINAR/Midterm/Tutors.csv");
+      while (cont) {
+       System.out.print("Hi, welcome to peer tutoring, to be tutored please enter your name: ");
+       String name = scanner.nextLine();
+       System.out.print("Enter your class: ");
+       String subject = scanner.nextLine();
+       System.out.print("Enter your level: ");
+       String level = scanner.nextLine();
+       System.out.print("Enter your free block: ");
+       String freeBlock = scanner.nextLine();
+       Students student1 = new Students(name, subject, level, freeBlock);
+       for (int i = 0; i <currentTutors.size(); i ++) {
+           if(isQualified(student1, currentTutors.get(i))){
+               currentTutors.get(i).addStudent(student1.getName());
+               System.out.println("Yay, we found you a tutor");
+               System.out.println("Tutor Name: " + currentTutors.get(i).getName());
+               System.out.println("Current Students: " + currentTutors.get(i).getCurrentStudents());
+               break;
+  
+           }
+           if (i == currentTutors.size()-1) {
+                System.out.println("Sorry, there is no available tutor for you right now");
+           }
+       }
+       System.out.print("Would you like to add another student (yes/no): ");
+       String keepGoing = scanner.nextLine();
+       if (keepGoing.equals("no")) {
+           cont = false;
+       }
+  
       }
-      if(isQualified(student2, tutor1)){
-          tutor1.addStudent(student2.getName());
-      }
+  }
 
 
+  public static ArrayList<Tutors> listOfTutors(String pathname) throws FileNotFoundException {
+       ArrayList<Tutors> list = new ArrayList<Tutors>();
+       File f = new File(pathname);
+       Scanner sc = new Scanner(f);
+       String[] header = sc.nextLine().split(",");
 
 
-      // Display tutor information
-      System.out.println("Tutor Name: " + tutor1.getName());
-      System.out.println("Current Students: " + tutor1.getCurrentStudents());
+       while (sc.hasNextLine()) {
+           ArrayList<String> line = new ArrayList<>(Arrays.asList(sc.nextLine().split(",")));
+           String name = (line.get(0));
+           String subject = (line.get(1));
+           String level = (line.get(2));
+           String freeBlock = (line.get(3));
+           Tutors tutor1 = new Tutors (name,subject,level,freeBlock);
+           list.add(tutor1);
+       }
+
+
+       return list;
+     
   }
    public static boolean isQualified(Students student, Tutors tutor){
       if(!student.getFreeBlock().equals(tutor.getFreeBlock())){
@@ -107,4 +145,3 @@ public class Tester{
       return true;
   }
 }
-
