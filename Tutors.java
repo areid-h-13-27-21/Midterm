@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 
@@ -25,40 +26,30 @@ public class Tutors {
        return name;
    }
 
-
    // get subject
    public String getSubject() {
        return subject;
    }
-
 
    // get level
    public String getLevel() {
        return level;
    }
 
-
    // get freeBlock
    public String getFreeBlock() {
        return freeBlock;
    }
-
 
    // get currentStudents
    public ArrayList<String> getCurrentStudents() {
        return currentStudents;
    }
 
-
    // set currentStudents
    public void setCurrentStudents(ArrayList<String> currentStudents) {
        this.currentStudents = currentStudents;
    }
-
-
-
-
-
 
    // method that adds student to tutors list
    public void addStudent (String studentName) {
