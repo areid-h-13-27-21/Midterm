@@ -1,3 +1,4 @@
+
 public class Students{
   public String name;
   public String studentClass;
@@ -6,7 +7,7 @@ public class Students{
 
 
 
-
+//Student constructor
   public Students(String name, String studentClass, String level, String freeBlock) {
       this.name = name;
       this.studentClass = studentClass;
@@ -16,24 +17,22 @@ public class Students{
 
 
 
-
+//get name
   public String getName() {
       return name;
   }
 
-
-
-
+//get free block
   public String getFreeBlock(){
       return freeBlock;
   }
+
+  //get class
   public String getStudentClass() {
       return studentClass;
   }
 
-
-
-
+//get level
   public String getLevel() {
       return level;
   }
