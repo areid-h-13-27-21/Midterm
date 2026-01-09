@@ -9,11 +9,11 @@ public class Tester{
 
 
   public static void main(String[] args) throws FileNotFoundException {
-      // Create students
       Scanner scanner = new Scanner(System.in);
       boolean cont = true;
       ArrayList<Tutors> currentTutors = listOfTutors("/Users/areid/Desktop/CS_SEMINAR/CS_SEMINAR/Midterm/Tutors.csv");
       while (cont) {
+        // Create students
        System.out.print("Hi, welcome to peer tutoring, to be tutored please enter your name: ");
        String name = scanner.nextLine();
        System.out.print("Enter your class: ");
@@ -23,6 +23,7 @@ public class Tester{
        System.out.print("Enter your free block: ");
        String freeBlock = scanner.nextLine();
        Students student1 = new Students(name, subject, level, freeBlock);
+       //assign student to tutor
        for (int i = 0; i <currentTutors.size(); i ++) {
            if(isQualified(student1, currentTutors.get(i))){
                currentTutors.get(i).addStudent(student1.getName());
@@ -37,6 +38,7 @@ public class Tester{
            }
        }
        System.out.print("Would you like to add another student (yes/no): ");
+       //stop adding students
        String keepGoing = scanner.nextLine();
        if (keepGoing.equals("no")) {
            cont = false;
@@ -54,6 +56,7 @@ public class Tester{
 
 
        while (sc.hasNextLine()) {
+        //make new tutors using file
            ArrayList<String> line = new ArrayList<>(Arrays.asList(sc.nextLine().split(",")));
            String name = (line.get(0));
            String subject = (line.get(1));
@@ -63,16 +66,14 @@ public class Tester{
            list.add(tutor1);
        }
 
-
        return list;
      
   }
    public static boolean isQualified(Students student, Tutors tutor){
+    //see if tutor and student have the same free block
       if(!student.getFreeBlock().equals(tutor.getFreeBlock())){
           return false;
       }
-
-
 
 
       int intTutorLevel = 1;
@@ -83,12 +84,6 @@ public class Tester{
       String studentLevel = student.getLevel();
       String tutorClass = tutor.getLevel();
       String studentClass = student.getLevel();
-
-
-
-
-
-
 
 
       //turn tutor level into int
@@ -110,7 +105,7 @@ public class Tester{
 
 
 
-
+        //compare level
       if(intTutorLevel < intStudentLevel){
           return false;
       }
@@ -123,11 +118,9 @@ public class Tester{
       } if(tutorClass.equals("Algebra")){
           intTutorClass = 2;
       }
+      
+      
       // turning student class into int
-
-
-
-
       if(studentClass.equals("Calc")){
           intStudentClass = 4;
       } if(studentClass.equals("PreCalc")){
@@ -135,6 +128,7 @@ public class Tester{
       } if(studentClass.equals("Algebra")){
           intStudentClass = 2;
       }
+      //compare classes
        if(intTutorClass < intStudentClass){
           return false;
       }
