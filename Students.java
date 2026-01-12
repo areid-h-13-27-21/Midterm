@@ -5,7 +5,7 @@ public class Students{
   public String level;
   public String freeBlock;
 
-
+//This class is used to make a student, there is a constructor and getting methods for all of the instance variables which will be used in the tester class 
 
 //Student constructor
   public Students(String name, String studentClass, String level, String freeBlock) {
