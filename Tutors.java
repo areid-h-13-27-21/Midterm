@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-
+//Thus class is used to make tutors and have getter methods for all of the instance variables to be used in the Tester class. It will also add students to the arraylist of a tutors current students.
 public class Tutors {
    // private instance variables
    public String name;
