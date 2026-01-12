@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 
 public class Tester{
-
-
+//This is the Tester Class where the tutor class, student class, and tutor file will all come together. The user will be a student so they will input all of their information as prompted to them. This class will also take the tutor file and make it into an array of tutors so that the students can be assigned to a tutor, after it is decided that the tutor is qualified.
   public static void main(String[] args) throws FileNotFoundException {
       Scanner scanner = new Scanner(System.in);
       boolean cont = true;
